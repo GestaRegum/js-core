@@ -1,7 +1,9 @@
 const defaultTo = (value, defaultValue) => {
-switch (defaultTo) {
-  case 
-} // Пишите код здесь
+  if (isNaN(value) || value === null || value === undefined) {
+    return defaultValue;
+  } else {
+    return value;
+  }
 };
 
 module.exports = defaultTo;
