@@ -1,5 +1,7 @@
 const defaultTo = (value, defaultValue) => {
-  // Пишите код здесь
+switch (defaultTo) {
+  case 
+} // Пишите код здесь
 };
 
 module.exports = defaultTo;
