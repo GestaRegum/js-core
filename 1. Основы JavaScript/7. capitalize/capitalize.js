@@ -1,5 +1,13 @@
 function capitalize(str) {
-  // Пишите код здесь
+  let word = str.split(" ");
+  console.log(word);
+  let UpperText = [];
+  for (let i = 0; i < word.length; i++) {
+    var string = word[i][0].toUpperCase() + word[i].toLowerCase().slice(1);
+    UpperText.push(string);
+  }
+
+  return UpperText.join(" ");
 }
 
 module.exports = capitalize;
