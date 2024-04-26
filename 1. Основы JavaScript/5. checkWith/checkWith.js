@@ -1,10 +1,6 @@
 const checkWith = (value, checkFunc) => {
   let a = checkFunc(value);
-  if (Boolean(a) === true) {
-    return true;
-  } else {
-    return false;
-  }
+  return Boolean(a);
 };
 
 export { checkWith };
