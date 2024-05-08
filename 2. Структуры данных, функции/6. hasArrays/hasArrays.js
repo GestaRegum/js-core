@@ -1,4 +1,12 @@
 const hasArrays = (values) => {
+  console.log(values)
+  for (let i = 0; i < values.length; i++) {
+    if (Array.isArray(values[i])) {
+      return true
+    }
+  }
+  return false
+  
   // Пишите код здесь
 };
 
