@@ -1,5 +1,19 @@
 const moveToStart = (arr, n) => {
-  // Пишите код здесь
+  let rearrangedArr = arr.slice();;
+  let newArr;
+  if (arr.length <= n) {
+    return arr;
+  } else {
+    for (let i = 0; i < n; i++) {
+      newArr = rearrangedArr.pop(1);
+      rearrangedArr.unshift(newArr);
+      console.log(rearrangedArr);
+    }
+    
+return rearrangedArr;
+  }
+  
+
 };
 
 export { moveToStart };
