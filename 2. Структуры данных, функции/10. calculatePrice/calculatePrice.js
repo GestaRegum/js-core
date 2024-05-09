@@ -1,5 +1,15 @@
 const calculatePrice = (orders) => {
-  // Пишите код здесь
+let result = 0;
+  if (orders === undefined || orders === null || Array.isArray(orders) === false ) {
+    return result;
+  } else {
+  
+  result = orders.reduce((sum, item) => {
+    return sum + item.price;
+  }, 0);
+  }
+return result;
+
 };
 
 export { calculatePrice };
