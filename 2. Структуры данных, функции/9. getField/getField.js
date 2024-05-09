@@ -1,5 +1,13 @@
 const getField = (data, field) => {
-  // Пишите код здесь
+  
+    let output = [];
+    if (data === undefined) {
+      return output
+    }
+    for (let i = 0; i < data.length; i++) {
+        output.push(data[i][field]);
+    }
+    return output;
 };
 
 export { getField };
