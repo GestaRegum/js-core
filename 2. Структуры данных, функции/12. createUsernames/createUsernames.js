@@ -1,4 +1,17 @@
 const createUsernames = (data) => {
+  let getUsername = '';
+  
+   const arr = Array.from(data);
+
+   for (let i = 0; i < arr.length; i++) {
+    const {firstName, lastName, age} = arr[i]
+    getUsername = firstName.toLowerCase() + lastName[0].toLowerCase() + (new Date().getFullYear() - age);
+    arr[i].username = getUsername;
+  
+  }
+
+   return arr
+
   // Пишите код здесь
 };
 
