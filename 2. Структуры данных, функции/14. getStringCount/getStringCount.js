@@ -1,4 +1,6 @@
 function getStringCount(object) {
+
+  
   // Пишите код здесь
 }
 
