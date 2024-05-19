@@ -1,4 +1,6 @@
 const once = (fn) => {
+  console.log(fn)
+  
   // Пишите код здесь
 };
 
