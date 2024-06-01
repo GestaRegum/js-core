@@ -10,7 +10,7 @@ describe("invert", () => {
   });
 
   it("Должен переворачивать объект с числами", () => {
-    expect(invert({ a: 1, b: 2, c: 3 })).toEqual({ 1: "a", 2: "b", 3: "c" });
+    expect(invert({ a: "r", b: "s", c: "a" })).toEqual({ r: "a", s: "b", a: "c" });
   });
 
   it("Должен использовать метод toString", () => {
