@@ -8,6 +8,19 @@ class Addition {
     return this.num + nums.reduce(sum);
   }
 }
+function logCalls(target, key, descriptor) {
+  const originalMethod = descriptor.value;
+
+  descriptor.value = function (...args) {
+    console.log('called'); 
+    return originalMethod.apply(this, args);
+  };
+
+  return descriptor;
+}
+Object.defineProperty(Addition.prototype, 'add', logCalls(Addition.prototype, 'add', Object.getOwnPropertyDescriptor(Addition.prototype, 'add')));
+
+
 
 // Пишите код здесь
 

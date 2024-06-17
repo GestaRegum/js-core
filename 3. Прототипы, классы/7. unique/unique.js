@@ -1,6 +1,12 @@
 const unique = (arr) => {
+
+  let result = new Set(arr)
+  console.log(result)
+  
+
+ return Array.from(result)
   // Пишите код здесь
 };
 
 export { unique };
-// Для запуска теста вводим в терминале команду: npm run test:current -- unique.test.js
+// npm run test:current -- unique.test.js

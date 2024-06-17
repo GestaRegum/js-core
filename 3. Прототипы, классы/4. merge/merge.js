@@ -1,4 +1,10 @@
 const merge = (...objs) => {
+  return objs.reduce((acc, obj) => {
+    if (typeof obj === "object") {
+      return { ...acc, ...obj };
+  }
+  return acc
+  }, {});
   // Пишите код здесь
 };
 

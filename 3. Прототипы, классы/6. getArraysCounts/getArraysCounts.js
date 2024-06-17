@@ -1,6 +1,20 @@
 const getArraysCounts = (arr) => {
+
+  const result = new Map();
+
+  for (const item of arr) {
+      if (result.has(item)) {
+        result.set(item, result.get(item) + 1);
+      } else {
+        result.set(item, 1);
+      }
+  }
+  
+
+  return result;
+
   // Пишите код здесь
 };
 
 export { getArraysCounts };
-// Для запуска теста вводим в терминале команду: npm run test:current -- getArraysCounts.test.js
+// npm run test:current -- getArraysCounts.test.js

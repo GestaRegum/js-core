@@ -1,10 +1,21 @@
 function isEmpty(obj) {
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+        return false;
+    }
+}
+return true;
   // Пишите код здесь
 }
 
 function isEmptyWithProtos(obj) {
+
+  return obj.__proto__ === undefined
+ 
+  
+
   // Пишите код здесь
 }
 
 export { isEmpty, isEmptyWithProtos };
-// Для запуска теста вводим в терминале команду: npm run test:current -- isEmpty.test.js
+// npm run test:current -- isEmpty.test.js
