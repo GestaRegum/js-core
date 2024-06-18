@@ -1,24 +1,23 @@
 class Calc {
-
-  constructor (a = 0) {
-    this.num = a
+  constructor(a = 0) {
+    this.num = a;
   }
 
-  add (b) {
-  
-    return new Calc (this.num + b)
+  sum(a) {
+    return new Calc(a)
   }
 
-  sub (b) {
-  
-    return new Calc (this.num - b)
+  add(b) {
+    return this.sum(this.num + b)
   }
 
-  result () {
-    return this.num
-}
+  sub(b) {
+    return this.sum(this.num - b)
+  }
 
-// Пишите код здесь
+  result() {
+    return this.num;
+  }
 }
 
 export { Calc };
