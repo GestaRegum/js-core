@@ -1,16 +1,11 @@
 function invert(obj) {
- let result = {}
-  
+  let result = {};
 
   Object.entries(obj).forEach(([key, i]) => {
-  
-    return result[i] = key
-  })
- 
- 
-return result
+      return (result[i] = key);
+  });
 
- 
+  return result;
 
   // Пишите код здесь
 }
