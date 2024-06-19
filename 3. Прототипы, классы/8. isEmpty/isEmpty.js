@@ -9,9 +9,23 @@ function isEmpty(obj) {
 }
 
 function isEmptyWithProtos(obj) {
-  return (obj.__proto__ === undefined && obj.__proto__ !== null);
+  if (obj == null || typeof obj !== "object") {
+      return true;
+  }
 
-  // Пишите код здесь
+  if (Object.getOwnPropertyNames(obj).length > 0 || Object.getOwnPropertySymbols(obj).length > 0) {
+      return false;
+  }
+
+  let proto = Object.getPrototypeOf(obj);
+  while (proto !== null) {
+      if (Object.getOwnPropertyNames(proto).length > 0 || Object.getOwnPropertySymbols(proto).length > 0) {
+          return false;
+      }
+      proto = Object.getPrototypeOf(proto);
+  }
+
+  return true;
 }
 
 export { isEmpty, isEmptyWithProtos };
