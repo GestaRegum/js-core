@@ -20,6 +20,19 @@ class TemporaryError extends Error {
 }
 
 function getRepeatableData(getData, key, maxRequestsNumber) {
+  for (let attempts = 0; attempts <= maxRequestsNumber; ) {
+    try {
+        return getData(key);
+    } catch (err) {
+        if (err.name === "NotFoundError") {
+            throw new NotFoundError();
+        } else if (err.name === "TemporaryError") {
+            attempts++;
+        }
+    }
+}
+
+throw new AttemptsLimitExceeded();
   // Пишите код здесь
 }
 
