@@ -1,4 +1,10 @@
 function promiseRace(promises) {
+  return new Promise((resolve, reject) => {
+    for (let promis of promises) {
+      Promise.resolve(promis).then(resolve, reject);
+    }
+  });
+
   // Пишите код здесь
 }
 

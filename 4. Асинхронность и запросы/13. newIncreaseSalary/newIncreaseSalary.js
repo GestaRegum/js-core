@@ -23,7 +23,7 @@ const api = {
           : {
               ...employee,
               salary: newSalary,
-            }
+            },
       );
       this._employees = updatedEmployees;
       resolve(this._employees.find(({ id }) => id === employeeId));

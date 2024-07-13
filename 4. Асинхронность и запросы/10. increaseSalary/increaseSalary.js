@@ -1,5 +1,27 @@
 function increaseSalary() {
-  // Пишите код здесь
+  return api.getEmployees().then((employees) => {
+    let employee = employees.reduce((min, obj) => {
+      if (min.salary > obj.salary) {
+        return obj;
+      } else {
+        return min;
+      }
+    });
+
+    const employeeId = employee.id;
+    const newSalary = employee.salary * 1.2;
+
+    return api
+      .setEmployeeSalary(employeeId, newSalary)
+      .then(() => {
+        const text = `Привет, ${employee.name}! Поздравляем, твоя новая зарплата = ${newSalary}!`;
+
+        return api.notifyEmployee(employeeId, text);
+      })
+      .catch((error) => {
+        return api.notifyAdmin(error).then(() => false);
+      });
+  });
 }
 
 const api = {
@@ -23,7 +45,7 @@ const api = {
           : {
               ...employee,
               salary: newSalary,
-            }
+            },
       );
       resolve(this._employees.find(({ id }) => id === employeeId));
     });

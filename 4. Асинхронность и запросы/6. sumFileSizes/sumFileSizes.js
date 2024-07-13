@@ -8,7 +8,15 @@ function getFileSize(filename, cb) {
 }
 
 function sumFileSizes(filename1, filename2, cb) {
-  // Пишите код здесь
+  getFileSize(filename1, (fileSize1) => {
+    getFileSize(filename2, (fileSize2) => {
+      if (typeof fileSize2 === "number") {
+        cb(fileSize1 + fileSize2);
+      } else {
+        cb(null, Error("not found"));
+      }
+    });
+  });
 }
 
 export { getFileSize, sumFileSizes, fileSizes };

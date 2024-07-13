@@ -1,4 +1,18 @@
 const throttle = (fn, delay) => {
+  let timeout = true;
+
+  return function (...arg) {
+    if (timeout) {
+      console.log("Запустили");
+      timeout = false;
+      fn.apply(this, arg);
+    } else {
+      console.log("нужно подождать");
+      timeout = setTimeout(() => {
+        fn.apply(this, arg);
+      }, delay);
+    }
+  };
   // Пишите код здесь
 };
 
