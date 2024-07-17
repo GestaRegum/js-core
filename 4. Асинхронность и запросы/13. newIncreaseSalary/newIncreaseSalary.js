@@ -1,4 +1,47 @@
 async function newIncreaseSalary() {
+  try {
+    const employees = await api.getEmployees();
+
+    // Считаем среднюю зарплату
+    const totalSalary = employees.reduce(
+      (acc, employee) => acc + employee.salary,
+      0,
+    );
+    const averageSalary = totalSalary / employees.length;
+
+    let successfulUpdates = 0;
+    let summarySalaries = 0;
+
+    for (const employee of employees) {
+      let newSalary = employee.salary;
+
+      if (employee.salary < averageSalary) {
+        newSalary = employee.salary * 1.2;
+      } else {
+        newSalary = employee.salary * 1.1;
+      }
+
+      try {
+        const updatedEmployee = await api.setEmployeeSalary(
+          employee.id,
+          newSalary,
+        );
+        successfulUpdates++;
+        summarySalaries += newSalary;
+
+        const text = `Привет, ${employee.name}! Поздравляем, твоя новая зарплата = ${updatedEmployee.salary}!`;
+        await api.notifyEmployee(updatedEmployee.id, text);
+      } catch (error) {
+        await api.notifyAdmin(error);
+      }
+    }
+
+    await api.sendBudgetToAccounting(summarySalaries);
+
+    return successfulUpdates;
+  } catch (error) {
+    await api.notifyAdmin(error);
+  }
   // Пишите код здесь
 }
 

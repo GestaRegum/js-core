@@ -1,4 +1,8 @@
 async function promisesInSeries(asyncFns) {
+  return asyncFns.reduce((acc, cur) => {
+    return acc.then(cur);
+  }, Promise.resolve());
+
   // Пишите код здесь
 }
 
