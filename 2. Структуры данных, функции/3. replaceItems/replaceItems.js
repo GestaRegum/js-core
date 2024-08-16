@@ -1,14 +1,18 @@
 function replaceItemsClear(arr, item, replaceItem) {
-  let notReplaceItem = [];
+  let notReplaceItem = arr.reduce((acc, cur) => {
+    if (cur !== item) {
+      acc.push(cur)
+    } else {
+      acc.push(replaceItem)
+      }
+    return acc
+  },[])
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== item) {
-      notReplaceItem.push(arr[i]);
-    } else (notReplaceItem.push(replaceItem))
-  }
+
   return notReplaceItem
   // Пишите код здесь
 }
+
 
 function replaceItemsMutate(arr, item, replaceItem) {
   for (let i = 0; i < arr.length; i++) {
@@ -17,7 +21,6 @@ function replaceItemsMutate(arr, item, replaceItem) {
       
     }
   }
-  console.log(arr)
 return arr;
   // Пишите код здесь
 }

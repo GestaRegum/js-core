@@ -1,12 +1,12 @@
 function findAllIndices(arr, value) {
-  let evenOrOdd = [];
 
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === value ) {
-        evenOrOdd.push(i);
-      } 
-      console.log(evenOrOdd)
+  let evenOrOdd = arr.reduce((acc, cur, index) => {
+    if(cur === value) {
+      acc.push(index)
     }
+    return acc
+  },[])
+
     return evenOrOdd
 };
 
